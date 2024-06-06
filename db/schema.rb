@@ -15,6 +15,10 @@ ActiveRecord::Schema.define(version: 2024_06_05_081714) do
   create_table "game_posts", force: :cascade do |t|
     t.string "post_title"
     t.text "post_body"
+    t.string "shop_name"
+    t.string "shop_address"
+    t.integer "latitude"
+    t.integer "longitude"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
