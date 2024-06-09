@@ -1,30 +1,60 @@
 <!DOCTYPE html>
+<head>
+
+</head>
 <html>
   <head>
-    <title>Bodogenikki</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ボドゲ交流日記</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
 
+    <script src="https://kit.fontawesome.com/e8ca34111f.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
   <body>
-    <header>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </header>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <%= link_to 'Home', root_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Games', posts_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Categories', '#', class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'New Reviews', new_post_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Popular', '#', class: 'nav-link' %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <p>&copy; 2024 BoardGameReviews</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><%= link_to '利用規約', '#' %></li>
+          <li class="list-inline-item"><%= link_to 'プライバシーポリシー', '#' %></li>
+          <li class="list-inline-item"><%= link_to 'サポート', '#' %></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
