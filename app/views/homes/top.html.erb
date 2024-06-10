@@ -3,14 +3,14 @@
     <% flash.each do |message_type, message| %>
       <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
     <% end %>
-    <h1>Welcome to <i class="fas fa-gamepad"></i> ボドゲ交流日記!!</h1>
+    <h1><i class="fa-solid fa-chess-knight"></i>ボドゲ交流日記<i class="fa-solid fa-chess-rook"></i></h1>
     <p>
-      In <i class="fas fa-gamepad"></i> BoardGameReviews,<br>
+      <i class="fa-solid fa-chess"></i> BoardGameReviews,<br>
       you can share and exchange your opinions, impressions, and emotions<br>
       about various board games!
     </p>
     <% if user_signed_in? %>
-      <p>Welcome back, <%= current_user.email %>!</p>
+      <p><%= current_user.name %>さん、こんにちは!</p>
     <% else %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
