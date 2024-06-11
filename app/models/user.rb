@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_many :game_post
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
 end
