@@ -1,16 +1,17 @@
-新規投稿画面
+<div class="container my-5 col-11 col-sm-10 col-lg-8 col-xl-6 mx-auto">
+
     <%= form_with model: @game_post do |f| %>
-              <div class="input-group mb-3 mt-4">
-            <h4>投稿タイトル</h4>
-            <%= f.text_field :post_title, class: "form-control", placeholder: "〇〇で遊んだ！" %>
-            <h4>投稿内容</h4>
-            <%= f.text_area :post_body, class: "form-control", placeholder: "1位取れた！" %>
-            <h4>ショップ名</h4>
-            <%= f.text_field :shop_name, class: "form-control", placeholder: "買った・遊んだショップ" %>
-            <h4>住所</h4>
+
+            <h4>投稿タイトル</h4><br>
+            <%= f.text_field :post_title, class: "form-control", placeholder: "〇〇で遊んだ！" %><br>
+            <h4>投稿内容</h4><br>
+            <%= f.text_area :post_body, class: "form-control", placeholder: "1位取れた！" %><br>
+            <h4>ショップ名</h4><br>
+            <%= f.text_field :shop_name, class: "form-control", placeholder: "買った・遊んだショップ" %><br>
+            <h4>住所</h4><br>
             <%= f.text_field :shop_address, class: "form-control", placeholder: "ショップの住所" %>
-          </div>
 
 
         <%= f.submit '投稿', class: "btn btn-lg btn-block mt-4" %>
   <% end %>
+ </div>
