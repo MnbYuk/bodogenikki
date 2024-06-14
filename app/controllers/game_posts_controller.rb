@@ -1,12 +1,11 @@
 class GamePostsController < ApplicationController
   def index
-    @posts = GamePost.all
+    @pgame_posts = GamePost.all
   end
 
   def show
-    @game_post = GamePost.new
-    @game_posts_image = GamePost.find(params[:id])
-    @user = @game_posts_image.user
+    @game_posts = GamePost.find(params[:id])
+    @user = @game_posts.user
   end
 
   def new
@@ -46,5 +45,5 @@ class GamePostsController < ApplicationController
   def game_post_params
     params.require(:game_post).permit(:post_title, :post_body, :shop_name, :shop_address)
   end
-  
+
 end
