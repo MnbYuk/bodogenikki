@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "homes#top"
   get "home/about" => "homes#about", as: "about"
-
+  get 'users/mypage/:id' => 'users#mypage', as: "mypage"
   resources :game_posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
   resources :comments, only: [:new, :edit, :create, :update, :destroy]
   resources :users, only: [:show, :edit, :update]
 
-  get 'users/mypage'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end

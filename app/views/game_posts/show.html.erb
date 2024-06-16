@@ -10,7 +10,7 @@
         </span></td>
 
         <% if @game_posts.user == current_user %>
-          <td><span><%= link_to "Edit", edit_user_path(@game_posts.id) %></span></td>
+          <td><span><%= link_to "Edit", edit_game_post_path(@game_posts.id) %></span></td>
           <td><span><%= link_to "Destroy", game_posts_path(@game_posts.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
         <% end %>
       </tr>

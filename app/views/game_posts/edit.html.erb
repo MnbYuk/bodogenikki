@@ -8,15 +8,15 @@
 
 <%= form_with model: @game_post do |f| %>
             <h4>投稿タイトル</h4><br>
-            <%= f.text_field :post_title, class: "form-control", placeholder: "〇〇で遊んだ！" %><br>
+            <%= f.text_field :post_title, class: "form-control" %><br>
             <h4>投稿内容</h4><br>
-            <%= f.text_area :post_body, class: "form-control", placeholder: "1位取れた！" %><br>
+            <%= f.text_area :post_body, class: "form-control" %><br>
             <h4>ショップ名</h4><br>
-            <%= f.text_field :shop_name, class: "form-control", placeholder: "買った・遊んだショップ" %><br>
+            <%= f.text_field :shop_name, class: "form-control" %><br>
             <h4>住所</h4><br>
-            <%= f.text_field :shop_address, class: "form-control", placeholder: "ショップの住所" %>
+            <%= f.text_field :shop_address, class: "form-control" %>
 
-  <%= f.submit 'Update' class: "btn btn-lg btn-block mt-4"%>
+  <%= f.submit 'Update' %>
 
 <% end %>
 <%= link_to "Show", game_post_path(@game_post.id) %>

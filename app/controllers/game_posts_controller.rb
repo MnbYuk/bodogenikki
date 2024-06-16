@@ -13,6 +13,10 @@ class GamePostsController < ApplicationController
   end
 
   def edit
+    game_post = GamePost.find(params[:id])
+    unless game_post.user.id == current_user.id
+      redirect_to game_post_path
+    end
     @game_post = GamePost.find(params[:id])
   end
 
@@ -27,8 +31,11 @@ class GamePostsController < ApplicationController
   end
 
   def update
-    if @game_post.update(game_post_params)
-      redirect_to game_posts_path
+    @game_post =GamePost.find(params[:id])
+    @game_post.update(game_post_params)
+    if @game_post.save
+      flash[:notice_game_post_update] = "You have updated book successfully."
+      redirect_to game_post_path(@game_post.id)
     else
       render :edit
     end
