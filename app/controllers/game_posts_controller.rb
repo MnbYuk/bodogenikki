@@ -13,6 +13,7 @@ class GamePostsController < ApplicationController
   end
 
   def edit
+    @game_post = GamePost.find(params[:id])
   end
 
   def create
