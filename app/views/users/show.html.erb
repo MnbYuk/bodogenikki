@@ -1,2 +1,30 @@
-<h1>ユーザー詳細</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="col-md-8 offset-md-1">
+
+  <h1>ユーザー詳細</h1>
+            <th>name</th>
+          <th><%= current_user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= current_user.introduction %></th>
+        </tr>
+      </table>
+    <table class="table table-hover table-inverse">
+        <thead>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+        </thead>
+
+        <tbody>
+            <% @post_games.each do |game_post| %>
+                <tr>
+
+                    </span></td>
+                    <td><span><%= link_to game_post.post_title, game_post_path(game_post.id) %></span></td>
+                    <td><span><%= game_post.post_body %></span></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
