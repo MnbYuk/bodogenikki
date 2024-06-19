@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def mypage
-    @users = User.all
+    @user = User.find(params[:id])
+    @game_posts = @user.game_posts
   end
 
   def edit
@@ -13,8 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
-    @post_games = @user.game_post
+    @users = User.all
   end
 end
 

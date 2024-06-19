@@ -43,48 +43,48 @@
 
 
 
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <%= link_to 'トップページ', root_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ボドゲ日記', about_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'マイページ', mypage_path(current_user.id), class: 'nav-link' %>
-              </li>
-              </li>
-              <li class="nav-item">
-                <%= link_to '新規投稿', new_game_post_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to '投稿一覧', game_post_path(current_user.id), class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ユーザー', user_path(current_user.id), class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'カレンダー', '#', class: 'nav-link' %>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <%= yield %>
-        </main>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to 'トップページ', root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ボドゲ日記', about_path, class: 'nav-link' %>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'マイページ', mypage_path(current_user.id), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '新規投稿', new_game_post_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '投稿一覧', game_posts_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ユーザー', user_path(current_user.id), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'カレンダー', '#', class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-
+    </nav>
+    
+    
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <%= yield %>
+      
+      
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
-        <p>2024 ボドゲ交流</p>
+        <p>2024 ボドゲ交流日記</p>
         <ul class="list-inline">
           <li class="list-inline-item"><%= link_to 'spesial thanks', '#' %></li>
         </ul>

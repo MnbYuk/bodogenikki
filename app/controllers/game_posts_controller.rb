@@ -1,6 +1,6 @@
 class GamePostsController < ApplicationController
   def index
-    @pgame_posts = GamePost.all
+    @game_posts = GamePost.all
   end
 
   def show
@@ -51,7 +51,7 @@ class GamePostsController < ApplicationController
   private
 
   def game_post_params
-    params.require(:game_post).permit(:post_title, :post_body, :shop_name, :shop_address)
+    params.require(:game_post).permit(:post_title, :post_body, :post_image, :shop_name, :shop_address)
   end
 
 end
