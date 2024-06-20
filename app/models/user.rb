@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_many :game_posts
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
-         
+
          
   def get_profile_image(width, height)
     unless profile_image.attached?
