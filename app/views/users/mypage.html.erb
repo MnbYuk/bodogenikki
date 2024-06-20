@@ -1,9 +1,22 @@
-<h1>マイページ</h1>
+<h4>マイページ</h4>
 
 <div class="container my-5">
-  <h4><%= current_user.name %></h4>
-    <h4><%= current_user.introduction %></h4>
   <div class="row">
+    <div class="col-md-4">
+      <% if current_user.profile_image.attached? %>
+        <%= image_tag current_user.profile_image, class: 'img-fluid rounded' %>
+      <% else %>
+        <%= image_tag 'no_image.jpg', class: 'img-fluid rounded' %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h4>名前: <%= current_user.name %></h4>
+      <p>自己紹介: <%= current_user.introduction %></p>
+      <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'btn btn-primary' %>
+    </div>
+    
+    <h4>投稿一覧</h4><br>
+
     <% @game_posts.each do |game_post| %>
       <div class="col-md-4 mb-4">
         <div class="card">
