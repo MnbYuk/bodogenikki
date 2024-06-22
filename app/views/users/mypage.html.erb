@@ -14,9 +14,11 @@
       <p>自己紹介: <%= current_user.introduction %></p>
       <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'btn btn-primary' %>
     </div>
-    
-    <h4>投稿一覧</h4><br>
+      </div>
+      
 
+    <h4>投稿一覧</h4>
+  <div class="row">
     <% @game_posts.each do |game_post| %>
       <div class="col-md-4 mb-4">
         <div class="card">
@@ -36,5 +38,5 @@
         </div>
       </div>
     <% end %>
-  </div>
+
 </div>
