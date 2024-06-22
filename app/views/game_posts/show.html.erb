@@ -10,8 +10,9 @@
         </span></td>
 
         <% if @game_posts.user == current_user %>
-          <td><span><%= link_to "Edit", edit_game_post_path(@game_posts.id) %></span></td>
-          <td><span><%= link_to "Destroy", game_post_path(@game_post.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+          <td><span><%= link_to "編集", edit_game_post_path(@game_posts.id) %></span></td>
+          <td><span><%= link_to "削除", game_post_path(@game_posts.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+
         <% end %>
       </tr>
     </tbody>
