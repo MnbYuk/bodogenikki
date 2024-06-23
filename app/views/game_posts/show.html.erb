@@ -1,6 +1,6 @@
-<h1>投稿詳細</h1>
+  <div class="container my-5 col-12 col-sm-12 col-lg-10 col-xl-8 mx-auto text-center">
+    <h1>投稿詳細</h1>
 
-<div class="container my-5">
   <div class="row">
     <div class="col-md-8">
       <h2>タイトル</h2>
@@ -21,11 +21,12 @@
       <% else %>
             <div class="card-img-top bg-secondary" style="height: 200px; width: 200px; display: flex; align-items: center; justify-content: center;">
               <span class="text-white">No Image</span>
+            </div>
       <% end %>
-    </div>
+
   </div>
 
-  <div class="mt-4">
+</div>
     <% if @game_post.user == current_user %>
       <%= link_to '編集', edit_game_post_path(@game_post) %>
       |
@@ -33,5 +34,7 @@
     <% else %>
       <%= link_to '戻る', game_posts_path %>
     <% end %>
-  </div>
+
+
+</div>
 </div>

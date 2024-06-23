@@ -1,3 +1,5 @@
+
+  <div class="container my-5 col-11 col-sm-10 col-lg-8 col-xl-6 mx-auto text-center">
 <h4>ユーザー一覧</h4>
 <div class="container my-5">
   <div class="row">
@@ -9,7 +11,7 @@
               <% if user.profile_image.attached? %>
                 <%= image_tag user.profile_image, class: 'img-fluid rounded', style: "width: 100px; height: 100px;" %>
               <% else %>
-                <div class="card-img-top bg-secondary" style="height: 100px; width: 100px; display: flex; align-items: center; justify-content: center;">
+                <div class="card-img-top bg-secondary" style="height: 150px; width: 150px; display: flex; align-items: center; justify-content: center;">
                   <span class="text-white">No Image</span>
                 </div>
               <% end %>
@@ -23,4 +25,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>
