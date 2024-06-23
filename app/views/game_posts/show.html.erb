@@ -1,19 +1,37 @@
-  <h1>投稿詳細</h1>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><span>
-          <%= link_to @game_posts.post_title, game_posts_path(@game_posts.id) %>
-        </span></td>
-        <td><span>
-          <%= @game_posts.post_body %>
-        </span></td>
+<h1>投稿詳細</h1>
 
-        <% if @game_posts.user == current_user %>
-          <td><span><%= link_to "編集", edit_game_post_path(@game_posts.id) %></span></td>
-          <td><span><%= link_to "削除", game_post_path(@game_posts.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>タイトル</h2>
+      <p><%= @game_post.post_title %></p>
 
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+      <h2>内容</h2>
+      <p><%= @game_post.post_body %></p>
+
+      <% if @game_post.shop_name.present? %>
+        <h2>店舗の名前</h2>
+        <p><%= @game_post.shop_name %></p>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <% if @game_post.post_image.attached? %>
+        <%= image_tag @game_post.post_image, class: 'img-fluid' %>
+      <% else %>
+            <div class="card-img-top bg-secondary" style="height: 200px; width: 200px; display: flex; align-items: center; justify-content: center;">
+              <span class="text-white">No Image</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <% if @game_post.user == current_user %>
+      <%= link_to '編集', edit_game_post_path(@game_post) %>
+      |
+      <%= link_to '削除', game_post_path(@game_post), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <% else %>
+      <%= link_to '戻る', game_posts_path %>
+    <% end %>
+  </div>
+</div>

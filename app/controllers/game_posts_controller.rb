@@ -4,8 +4,7 @@ class GamePostsController < ApplicationController
   end
 
   def show
-    @game_posts = GamePost.find(params[:id])
-    @user = @game_posts.user
+    @game_post = GamePost.find(params[:id])
   end
 
   def new
