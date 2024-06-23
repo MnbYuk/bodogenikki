@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  def mypage
-    @user = User.find(params[:id])
-    @game_posts = @user.game_posts
+  
+  def index
+    @users = User.all
   end
+  
 
   def edit
     @user = User.find(params[:id])
@@ -14,7 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @user = User.find(params[:id])
+    @game_posts = @user.game_posts
+    
+        @users = User.all
+
   end
 
 
@@ -24,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     if @user.update(user_params)
-      flash[:notice_user_update] = "You have updated user successfully."
+      flash[:notice_user_update] = "更新しました"
       redirect_to user_path(@user)
     else
       render :edit
