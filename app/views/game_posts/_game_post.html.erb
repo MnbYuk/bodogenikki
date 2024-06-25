@@ -13,9 +13,11 @@
           <div class="card-body text-center">
             <h5 class="card-title"><%= game_post.post_title %></h5>
             <%= link_to '詳細', game_post_path(game_post), class: 'btn btn-red btn-sm' %>
+          <% if game_post.user_id == current_user.id %>
             <%= link_to '編集', edit_game_post_path(game_post), class: 'btn btn-secondary btn-sm' %>
-            <%= link_to '削除', game_post_path(game_post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          </div>
+            <%= link_to '削除', game_post_path(game_post), method: :delete, data: { confirm: '本当に削除?' }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+      </div>
         </div>
       </div>
     <% end %>

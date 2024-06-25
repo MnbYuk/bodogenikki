@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :game_posts
-  has_one_attached :profile_image
+  has_many :game_posts, dependent: :destroy
+  has_one_attached :profile_image, dependent: :destroy
   
   validates :name, presence: true
   validates :introduction, length: { maximum: 500 }
+  # validates :is_valid, inclusion: { in: [true, false] }
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -17,8 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @game_posts = @user.game_posts
-    
-        @users = User.all
+    @users = User.all
 
   end
 
@@ -28,6 +27,7 @@ class UsersController < ApplicationController
     unless @user.id == current_user.id
       redirect_to root_path
     end
+    
     if @user.update(user_params)
       flash[:notice_user_update] = "更新しました"
       redirect_to user_path(@user)
@@ -35,9 +35,17 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+     flash[:notice_user_destroy] = "アカウントを削除しました"
+    redirect_to root_path
+  end
+  
 end
 private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction, :is_valid)
   end
