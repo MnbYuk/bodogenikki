@@ -8,13 +8,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-md-4">
-      <% if @user.profile_image.attached? %>
-        <%= image_tag @user.profile_image, class: 'img-fluid rounded' %>
-      <% else %>
-        <div class="card-img-top bg-secondary" style="height: 200px; width: 200px; display: flex; align-items: center; justify-content: center;">
-          <span class="text-white">No Image</span>
-        </div>
-      <% end %>
+    <%= image_tag @user.get_profile_image(200,200) %>
     </div>
     <div class="col-md-8">
       <h4>名前: <%= @user.name %></h4>

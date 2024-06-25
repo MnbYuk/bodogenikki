@@ -8,13 +8,7 @@
         <div class="card" style="cursor: pointer;" onclick="location.href='<%= user_path(user) %>'">
           <div class="card-body d-flex">
             <div class="mr-3">
-              <% if user.profile_image.attached? %>
-                <%= image_tag user.profile_image, class: 'img-fluid rounded', style: "width: 100px; height: 100px;" %>
-              <% else %>
-                <div class="card-img-top bg-secondary" style="height: 150px; width: 150px; display: flex; align-items: center; justify-content: center;">
-                  <span class="text-white">No Image</span>
-                </div>
-              <% end %>
+ <%= image_tag user.get_profile_image(200,200) %>
             </div>
             <div>
               <h5 class="card-title"><%= user.name %></h5>
