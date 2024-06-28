@@ -3,14 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :game_posts, dependent: :destroy
   has_one_attached :profile_image, dependent: :destroy
-  
+
   validates :name, presence: true
   validates :introduction, length: { maximum: 500 }
   # validates :is_valid, inclusion: { in: [true, false] }
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/profile_no_img.png')

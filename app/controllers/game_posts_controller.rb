@@ -33,7 +33,7 @@ class GamePostsController < ApplicationController
     @game_post =GamePost.find(params[:id])
     @game_post.update(game_post_params)
     if @game_post.save
-      flash[:notice_game_post_update] = "You have updated book successfully."
+      flash[:notice_game_post_update] = "更新しました"
       redirect_to game_post_path(@game_post.id)
     else
       render :edit

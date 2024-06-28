@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  
+
   def index
     @users = User.all
   end
-  
+
 
   def edit
     @user = User.find(params[:id])
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     unless @user.id == current_user.id
       redirect_to root_path
     end
-    
+
     if @user.update(user_params)
       flash[:notice_user_update] = "更新しました"
       redirect_to user_path(@user)
@@ -35,14 +35,14 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
      flash[:notice_user_destroy] = "アカウントを削除しました"
     redirect_to root_path
   end
-  
+
 end
 private
 
