@@ -17,13 +17,14 @@ class GamePostsController < ApplicationController
       redirect_to game_post_path
     end
     @game_post = GamePost.find(params[:id])
+    
   end
 
   def create
     @game_post = GamePost.new(game_post_params)
     @game_post.user_id = current_user.id
     if @game_post.save
-      redirect_to game_posts_path
+      redirect_to game_post_path(@game_post.id)
     else
       render :new
     end
