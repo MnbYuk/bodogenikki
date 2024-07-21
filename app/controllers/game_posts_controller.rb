@@ -5,6 +5,7 @@ class GamePostsController < ApplicationController
 
   def show
     @game_post = GamePost.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

@@ -17,6 +17,7 @@
             <%= link_to '編集', edit_game_post_path(game_post), class: 'btn btn-secondary btn-sm' %>
             <%= link_to '削除', game_post_path(game_post), method: :delete, data: { confirm: '本当に削除?' }, class: 'btn btn-danger btn-sm' %>
     <% end %>
+                <p><%= link_to "#{game_post.comments.count} コメント", game_post_path(game_post.id) %></p>
       </div>
         </div>
       </div>
