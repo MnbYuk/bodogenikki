@@ -1,0 +1,23 @@
+<h1>ユーザー詳細</h1>
+
+<div class="container my-5">
+  <div class="row">
+      <div class="col-md-12 mb-4">
+
+        <div class="card">
+          <div class="card-body d-flex">
+            <div class="mr-3">
+              <%= image_tag @user.get_profile_image(200,200) %>
+            </div>
+            <div>
+              <h5 class="card-title"><%= @user.name %></h5>
+              <p class="card-text"><%= @user.introduction %></p>
+            </div>
+          </div>
+          <%= link_to '削除', admin_user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' } %> 
+        </div>
+
+      </div>
+
+  </div>
+</div>
