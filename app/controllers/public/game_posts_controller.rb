@@ -1,4 +1,4 @@
-class GamePostsController < ApplicationController
+class Public::GamePostsController < ApplicationController
   def index
     @game_posts = GamePost.all
   end

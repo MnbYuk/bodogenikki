@@ -26,17 +26,23 @@
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
- <%= form_with url: search_path, method: :get, local: true do %>
-
+      <%= form_with url: search_path, method: :get, local: true do %>
         <%= label_tag :search_type, "検索範囲" %>
-        <%= select_tag :search_type, options_for_select([["ユーザー", "users"], ["投稿", "posts"]], params[:search_type]), class: "form-control" %>
-        <%= text_field_tag :query, params[:query], class: "form-control" %>
-      <%= submit_tag "🔍" %>
-    <% end %>
+            </li>
+            <li class="nav-item">
+              <%= select_tag :search_type, options_for_select([["ユーザー", "users"], ["投稿", "posts"]], params[:search_type]), class: "form-control" %>
+            </li>
+            <li class="nav-item">
+              <%= text_field_tag :query, params[:query], class: "form-control" %>
+            <li class="nav-item">
+              <%= submit_tag "🔍" %>
+      <% end %>
                           </li>
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
               </li>
+              <%elsif admin_signed_in? %>
+              aaaa
             <% else %>
               <li class="nav-item">
                 <%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %>

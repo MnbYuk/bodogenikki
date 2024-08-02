@@ -1,4 +1,4 @@
-class SearchesController < ApplicationController
+class Public::SearchesController < ApplicationController
   def index
     if params[:query].present?
       if params[:search_type] == "users"

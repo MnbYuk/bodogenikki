@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Public::CommentsController < ApplicationController
 
   def create
     game_post = GamePost.find(params[:game_post_id])
