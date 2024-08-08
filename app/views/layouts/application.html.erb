@@ -25,19 +25,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-            <li class="nav-item">
+          <li class="nav-item">
+              
       <%= form_with url: search_path, method: :get, local: true do %>
-        <%= label_tag :search_type, "検索範囲" %>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= label_tag :search_type, "検索範囲" %>
             </li>
             <li class="nav-item">
               <%= select_tag :search_type, options_for_select([["ユーザー", "users"], ["投稿", "posts"]], params[:search_type]), class: "form-control" %>
             </li>
             <li class="nav-item">
               <%= text_field_tag :query, params[:query], class: "form-control" %>
+            </li>
             <li class="nav-item">
               <%= submit_tag "🔍" %>
+            </li>
+          </ul>
       <% end %>
-                          </li>
+          <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
               </li>
@@ -55,6 +61,7 @@
     <li class="nav-item">
       <%= link_to '管理者', new_admin_session_path, class: 'nav-link' %>
     </li>
+          </ul>
             <% end %>
           </ul>
         </div>

@@ -10,8 +10,8 @@
               <%= image_tag @user.get_profile_image(200,200) %>
             </div>
             <div>
-              <h5 class="card-title"><%= @user.name %></h5>
-              <p class="card-text"><%= @user.introduction %></p>
+              <h5 class="card-title">名前:<%= @user.name %></h5>
+              <p class="card-text">自己紹介<%= @user.introduction %></p>
             </div>
           </div>
           <%= link_to '削除', admin_user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' } %> 
