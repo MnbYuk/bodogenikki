@@ -41,12 +41,12 @@
             <li class="nav-item">
               <%= submit_tag "🔍" %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
           </ul>
       <% end %>
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
               <%elsif admin_signed_in? %>
           <li class="nav-item">
             <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
