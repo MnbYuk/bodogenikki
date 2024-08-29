@@ -1,5 +1,7 @@
 class AddCommentToCommentPosts < ActiveRecord::Migration[6.1]
   def change
-    add_column :comment_posts, :comment, :string
+    unless column_exists?(:comment_posts, :comment)
+      add_column :comment_posts, :comment, :string
+    end
   end
 end
