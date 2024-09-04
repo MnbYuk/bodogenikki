@@ -23,28 +23,52 @@
               <span class="text-white">No Image</span>
             </div>
       <% end %>
-
   </div>
 
+
 </div>
+  <div class="row">
+        <div class="col-md-12">
+<div>
     <% if @game_post.user == current_user %>
       <%= link_to '編集', edit_game_post_path(@game_post) %>
       |
       <%= link_to '削除', game_post_path(@game_post), method: :delete, data: { confirm: '本当に削除しますか？' } %>
     <% else %>
+    |
       <%= link_to '戻る', game_posts_path %>
     <% end %>
+</div>
 
 <div>
-  <p>コメント件数：<%= @game_post.comment_posts.count %></p>
+  
+<p>  
+  <% if @game_post.favorited_by?(current_user) %>
+
+      <%= link_to game_post_favorite_path(@game_post), method: :delete do %>
+        いいね♥件数：<%= @game_post.favorites.count %> 
+      <% end %>
+
+    <% else %>
+
+      <%= link_to game_post_favorite_path(@game_post), method: :post do %>
+        いいね♡件数：<%= @game_post.favorites.count %> 
+      <% end %>
+
+  <% end %>
+
+ |
+  
+コメント件数：<%= @game_post.comment_posts.count %>
   <% @game_post.comment_posts.each do |comment_post| %>
-    <p><%= image_tag comment_post.user.get_profile_image(100,100) %>
+    <%= image_tag comment_post.user.get_profile_image(100,100) %>
     <%= comment_post.comment %>
-    </p>
+    
     <%= comment_post.user.name %>
     <%= comment_post.created_at.strftime('%Y/%m/%d') %>
     
   <% end %>
+  </p>
 </div>
 <div>
   <%= form_with model: [@game_post, @comment_post] do |f| %>
@@ -52,6 +76,7 @@
     <%= f.submit "送信する" %>
   <% end %>
 </div>
-
+</div>
+</div>
 </div>
 </div>
