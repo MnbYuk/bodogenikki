@@ -52,7 +52,10 @@
     <% else %>
 
       <%= link_to game_post_favorite_path(@game_post), method: :post do %>
-        いいね♡件数：<%= @game_post.favorites.count %> 
+        いいね♡件数
+        
+        
+        ：<%= @game_post.favorites.count %> 
       <% end %>
 
   <% end %>
